@@ -2,36 +2,276 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/all.min.css">
-    <link rel="stylesheet" href="style.css">
-    <title>Title</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/all.min.css">
+  <link rel="stylesheet" href="css/animate.min.css">
+  <link rel="stylesheet" href="style.css">
+  <title>Title</title>
 </head>
 
 <body>
-    <section class=" d-flex align-items-center p-3 px-md-4 mb-3 bg-dark border-bottom shadow-sm">
-        <a class="my-0 mr-md-auto font-weight-normal"><img class="img-fluid img-ozil" src="img/PicsArt_04-28-03.45.22.png" alt=""> </a>
-        <nav class="my-2 my-md-0 mr-md-3">
-            <a class=" btn btn-outline-danger p-2 " href="file:///G:/crud/crud/my%20crud/posts.html">Manage Posts</a>
-        </nav>
-        <a class="btn btn-outline-light" href="#">Sign in</a>
-    </section>
+  <!-- NavBar -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-dark">
+    <a class="navbar-brand" href="#"><img class="img-fluid img-ozil" src="img/PicsArt_04-28-03.45.22.png" alt=""></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon "></span>
+    </button>
+    <div class="collapse navbar-collapse  " id="navbarNav">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item active">
+          <a class=" btn  btn-outline-danger p-2  " href="file:///G:/crud/crud/my%20crud/index.html">Home</a>
+        </li>
+        <li class="nav-item">
+          <a id="signIn" class="btn btn-outline-light p-2 ml-2" href="#" data-toggle="modal"
+            data-target="#exampleModalLong">Sign in</a>
+          <!-- Modal For Sign in -->
+          <div class="modal fade animate__animated animate__zoomIn  " id="exampleModalLong" tabindex="-1" role="dialog"
+            aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+            
+            <div class="modal-dialog mod " role="document">
+              <div class="modal-content">
+                <div class="modal-header bg-warning">
+                  <h5 class="modal-title " id="exampleModalLongTitle">Sign in</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body bg-dark text-warning">
+                  <form>
+                    <div class="form-group">
+                      <label for="exampleInputEmail1">Email address</label>
+                      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                    </div>
+                    <div class="form-group">
+                      <label for="exampleInputPassword1">Password</label>
+                      <input type="password" class="form-control" id="exampleInputPassword1">
+                    </div>
 
-
-
-    <section class="container-fluid">
-        <div class="ay7aga">
-            <div id="posts" class="row">
-
+                    <button type="submit" class="btn btn-warning">Sign in</button> <span>or</span>
+                    <a id="donSignUp" class=" btn btn-outline-warning" data-toggle="modal" data-target="#exampleModal" href=""> Don't
+                      Have Account </a>
+                  </form>
+                </div>
+              </div>
             </div>
+          
+          </div><!-- End Modal For Sign in -->
+
+          <!-- Modal For Sign up -->
+          <div class="modal fade animate__animated animate__zoomIn" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalTitle"
+            aria-hidden="true">
+            <div class="modal-dialog mod" role="document">
+              <div class="modal-content">
+                <div class="modal-header bg-warning">
+                  <h5 class="modal-title " id="exampleModalTitle">Sign up</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body bg-dark">
+                  <form id="signUpForm"> 
+                    
+                    <div class="form-group row">
+
+                      <div class="col-sm-12 d-flex justify-content-center">
+
+                        <label class="main-img d-flex flex-column" for="img">
+                          <div class="loadImg">
+                            <h5 >Upload</h5>
+                          </div>
+                            <div class="iconLoad m-auto">
+                              <i  class="fas fa-user-alt text-warning  img-signup"></i>
+                            </div>
+                            </label>
+                        <input type="text" 
+                        class="form-control-file" 
+                        id="userImg">
+                      </div><!-- End Name Input -->
+
+                      <!-- Start Name Input -->
+                      <div class="col-sm-12 m-auto">
+                        <input type="text" 
+                        class="form-control" 
+                        id="userName" 
+                        placeholder="Your Name"
+                        aria-describedby="Name">
+                      </div><!-- End Name Input -->
+                     
+                      <!-- Start Email Input -->
+                      <div class="col-sm-12">
+                        <input type="email" 
+                        class="form-control mt-2" 
+                        id="userEmail" 
+                        placeholder="Your Email"
+                        aria-describedby="email">
+                      </div><!-- End Name Input -->
+
+                      <!-- Start Password Input -->
+                      <div class="col-sm-12">
+                        <input type="password"                      
+                      class="form-control mt-2" 
+                      placeholder="Password"
+                      id="userPass">
+                      </div><!-- End Password Input -->
+
+                      <!-- Start Phone Input -->
+                      <div class="col-sm-12">
+                        <input type="tel"                      
+                      class="form-control mt-2" 
+                      placeholder="Phone"
+                      id="userPhone">
+                      </div><!-- End Phone Input -->
+
+                      <!-- Start Number Age Input -->
+                      <div class="col-md-6 col-sm-6">
+                        <input type="number"                      
+                      class="form-control mt-2" 
+                      placeholder="Age"
+                      id="userAge">
+                      </div><!-- End Age Input -->
+
+                      <!-- Start Select Your Country Input -->
+                      <div class="col-md-6 col-sm-6 ">
+                       <!-- <select class="form-control mt-2" name="Count" id="count">
+                         <option value=""> Select Country</option>
+                         <option value=""> Egypt </option>
+                         <option value=""> Germany </option>
+                         <option value=""> Italy </option>
+                       </select> -->
+                       <input type="text"                      
+                       class="form-control mt-2" 
+                       placeholder="Country"
+                       id="userCountry">
+                      </div><!-- End Select Your Country Input -->
+                    </div>
+                    <button type="submit" class="btn btn-warning">Sign up</button>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div><!-- End Modal For Sign up -->
+        </li>
+      </ul>
+    </div>
+  </nav> <!-- End NavBar -->
+
+
+
+  <!-- Modal For Delete Btns and Edit Modal  -->
+
+  <!--  Delete Modal Btn  -->
+  <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header bg-dark text-warning">
+          <h5 class="modal-title" id="exampleModalCenterTitle">Modal title</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
         </div>
+        <div class="modal-body bg-dark text-warning">
+          you sure you want delete
+        </div>
+        <div class="modal-footer bg-dark ">
+          <button type="button" class="btn btn-warning" data-dismiss="modal">Close</button>
+          <button id="confirm" type="button" class="btn btn-danger">yes</button>
+        </div>
+      </div>
+    </div>
+  </div><!-- End   Delete Modal Btn  -->
+
+  <!--  Edit Modal Btn  -->
+  <div class="modal fade" id="staticBackdrop" data-backdrop="static" tabindex="-1" role="dialog"
+    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    
+    <div class="modal-dialog mod" role="document">
+      <div class="modal-content ">
+        <div class="modal-header bg-warning">
+          <h5 class="modal-title" id="staticBackdropLabel">Edit Post</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body bg-dark">
+          <!-- Start  Edit Form -->
+          <form action="">
+            <div class="form-group row">
+              <!-- Start  Title Input will Recevie Text From Post  -->
+              <div class=" col-sm-12">
+                <input type="text" 
+                class="form-control" 
+                name="title" id="title" 
+                aria-describedby="title" 
+                placeholder="Title">
+              </div> <!-- End  Title Input  -->
+
+               <!-- Start  Content Textarea will Recevie Content From Post  -->
+               <div class="col-sm-12">
+                   <textarea class="form-control mt-2" 
+                   name="cont" id="cont" rows="3">
+                  </textarea>
+              </div> <!-- End  Content Textarea -->
+              <!-- Start  category Input will Recevie category From Post  -->
+              <div class="col-sm-12">
+                <input type="text" 
+                class="form-control mt-2" 
+                name="category" id="category" 
+                aria-describedby="category" 
+                placeholder="category">
+              </div> <!-- End  category Input  -->
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer bg-dark">
+          <button type="button" class="btn btn-warning" data-dismiss="modal">Close</button>
+          <button id="save" type="button" class="btn btn-primary">Save</button>
+        </div>
+      </div>
+    </div>
+  
+  </div> <!-- End Edit Modal Btn  -->
+
+  <!-- End  Modal For Delete Btns and Edit Modal -->
+
+  <section class="container-fluid">
+    <section class="slider">
+
     </section>
-    <script src="js/popper.min.js"></script>
-    <script src="js//popper.min.js"></script>
-    <script src="main.js"></script>
+
+    <div class="row">
+      <div class="col-lg-2"></div>
+      <div class="col-lg-10">
+
+      <section class="create-post d-flex">
+
+        <div class="new-post">
+         <button class="btn btn-info  d-flex"> New Post <i class="fa fa-plus-square fa-2x ml-1" aria-hidden="true"></i></button> 
+        </div>
+
+         
+      </section>
+
+
+
+      <div class="postManage">
+        <div id="postMan" class="row">
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+  </section>
+
+  <script src="js/jquery-3.5.1.min.js"></script>
+  <script src="js/popper.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="postsManage.js"></script>
 </body>
 
 </html>
