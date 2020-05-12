@@ -8,7 +8,10 @@ let contInput = document.getElementById('cont');
 let saveEdit = document.getElementById('save');
 
 
-// variables for sign up
+donHave.addEventListener('click', ()=>{
+    $('#exampleModalLong').modal('hide');
+})
+
 let userName = document.getElementById('userName');
 let userEmail = document.getElementById('userEmail');
 let userPass = document.getElementById('userPass');
@@ -16,50 +19,49 @@ let userPhone = document.getElementById('userPhone');
 let userImg = document.getElementById('userImg');
 let userAge = document.getElementById('userAge');
 let userCountry = document.getElementById('userCountry');
+
+
+// the sign up form
 let signUpForm = document.getElementById('signUpForm');
 
-
-
-donHave.addEventListener('click', ()=>{
-    $('#exampleModalLong').modal('hide');
-})
-
-// variable to store sign up object
-let signUpData = {};
-
 signUpForm.addEventListener('submit', (e) => {
+
     e.preventDefault();
-    signUpData.name = userName.value;
-    signUpData.email = userEmail.value;
-    signUpData.password = userPass.value;
-    signUpData.img = userImg.value;
-    signUpData.phone = userPhone.value;
-    signUpData.country = userCountry.value;
-    signUpData.Age = userAge.value;
+    let name = userName.value;
+    let email = userEmail.value;
+    let password = userPass.value;
+    let img = userImg.files[0];
+    let phone = userPhone.value;
+    let country = userCountry.value;
+    let Age = userAge.value;
 
-    console.log(signUpData);
-    
+    // the form data
+    const formData = new FormData();
 
+    formData.append('name',  name);
+    formData.append('email', email);
+    formData.append('password',  password);
+    formData.append('img',  img);
+    formData.append('phone',  phone);
+    formData.append('country',  country);
+    formData.append('Age', Age);
+  
     fetch('http://localhost:3000/xlarge/user/signup', {
-    method: 'POST',
-    headers: {
-    'Content-Type': 'application/json',
-  },
-  body: JSON.stringify(signUpData),
-})
-.then(response => response.json())
-.then(data => {
-  console.log('Success:', data);
-})
-.catch((error) => {
-  console.error('Error:', error);
-});
-    
+        
+        method: 'POST',
+        body: formData,
+    })
+    .then(response => response.json())
+    .then(data => {
+        console.log('Success:', data);
+    })
+    .catch((error) => {
+        console.error('Error:', error);
+    });
     
 })
 
 
-// sign up requst function
 
 
 
@@ -73,7 +75,6 @@ signUpForm.addEventListener('submit', (e) => {
 
 // Array for store return data
 let postManage =[];
-console.log(postManage);
 
 fetch('http://localhost:3000/xlarge/post/list',{ method: 'GET',
 })
